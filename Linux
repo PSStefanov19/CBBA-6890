@@ -1,0 +1,8 @@
+CC=g++
+CCFLAGS=-Wall -O2 
+BIN=bin
+
+LIB=-lncurses
+
+default:
+	$(CC) ./src/main.cpp -o $(BIN)/main.out $(CCFLAGS) $(LIB)

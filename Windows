@@ -1,0 +1,11 @@
+CC=g++
+CCFLAGS=-Wall -O2 
+BIN=bin
+
+INCLUDE=-I.\include\ncursesw -I.\include
+LDIR=-L.\lib
+
+LIB=-llibncurses
+
+default:
+	$(CC) ./src/main.cpp -o $(BIN)/main $(CCFLAGS) $(LDIR) $(INCLUDE) $(LIB)
