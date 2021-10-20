@@ -1,8 +1,9 @@
 CC=g++
 CCFLAGS=-Wall -O2
+SYS:=$(shell g++ -dumpmachine)
 BIN=bin
 	
-ifeq ($(OS), Windows_NT )
+ifeq (, $(findstring mingw, $(SYS)) )
 	CCFLAGS+=-llibncursesw -I.\include\ncursesw -L.\lib -I.\include
 	EXT=.exe
 else
