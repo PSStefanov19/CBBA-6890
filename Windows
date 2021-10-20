@@ -5,7 +5,7 @@ BIN=bin
 INCLUDE=-I.\include\ncursesw -I.\include
 LDIR=-L.\lib
 
-LIB=-llibncurses
+LIB=-llibncursesw
 
 default:
 	$(CC) ./src/main.cpp -o $(BIN)/main $(CCFLAGS) $(LDIR) $(INCLUDE) $(LIB)
