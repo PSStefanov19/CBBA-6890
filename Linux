@@ -1,8 +1,27 @@
+# include/ dir and obj/ dir
+IDIR=include
+ODIR=obj
+
+# Compiler options and flags
 CC=g++
-CCFLAGS=-Wall -O2 
-BIN=bin
+CCFLAGS=-I$(IDIR) 
+ERRFLAGS=-Wall -Wunused-variable -Werror
 
-LIB=-lncurses
+# Put header files here
+_DEPS=gameMenu.h
+DEPS=$(patsubst %, $(IDIR)/%, $(_DEPS))
 
-default:
-	$(CC) ./src/main.cpp -o $(BIN)/main.out $(CCFLAGS) $(LIB)
+# Put cpp files but change extension to .o
+_OBJ=main.o gameMenu.o
+OBJ=$(patsubst %, $(ODIR)/%, $(_OBJ))
+
+# Libraries
+LIBS=-lncurses
+
+# Compile .cpp files to .o files
+$(ODIR)/%.o: src/%.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CCFLAGS) $(ERRFLAGS)
+
+# Link .o files and make an executable in bin/ folder
+main: $(OBJ)
+	$(CC) -o bin/$@.out $^ $(CCFLAGS) $(ERRFLAGS) $(LIBS)
