@@ -2,6 +2,12 @@
 #include <string>
 #include "gameMenu.h"
 
+/**
+ * @brief Initial print of menu
+ * @details Prints the four main options and highlights the "> Play" option
+ * 
+ * @param menu The window to be printed to
+ */
 void initMenu(WINDOW *menu)
 {
 	mvwprintw(menu, 0, 1, " Maze Game ");
@@ -12,6 +18,15 @@ void initMenu(WINDOW *menu)
     mvwprintw(menu, 6, 2, "> Exit");
 }
 
+/**
+ * @brief A function to print the menu
+ * @details Prints the title. Check which the highlighted option is and
+ *  highlights it then refreshes the screen
+ * 
+ * @param menu The window to be printed to
+ * @param choice An array of menu options
+ * @param highlight Holds the number to the highlighted option
+ */
 void printMenu(WINDOW *menu ,std::string *choice, int *highlight)
 {
 	mvwprintw(menu, 0, 1, " Maze Game ");
@@ -31,6 +46,16 @@ void printMenu(WINDOW *menu ,std::string *choice, int *highlight)
 	wrefresh(menu);
 }
 
+
+/**
+ * @brief Input handler
+ * @details Takes input from the keypad and either moves the highlight up, down,
+ *  or if keypad enter is pressed switches menu
+ * 
+ * @param menu The window to be printed to
+ * @param highlight Holds the number to the highlighted option
+ * @param bSelectedChoice A flag to check if enter has been pressed
+ */
 void handleInput(WINDOW *menu,int *highlight, bool *bSelectedChoice)
 {
 	switch(wgetch(menu))
@@ -56,7 +81,12 @@ void handleInput(WINDOW *menu,int *highlight, bool *bSelectedChoice)
   	}
 }
 
-
+/**
+ * @brief Displays the "About us" option in the menu
+ * @details Clears the window. Creates a box and displays information
+ * 
+ * @param menu The window to be printed to
+ */
 void diplayAboutUs(WINDOW *menu)
 {
 	werase(menu);
@@ -66,6 +96,14 @@ void diplayAboutUs(WINDOW *menu)
 	mvwprintw(menu, 4, 2, "Made by team CBBA-6890");
 }
 
+/**
+ * @brief Main menu function
+ * @details Contains the menu window, menu options and flags.
+ *  It initializes the menu and starts the main menu loop. At the end it clears the screen.
+ * 
+ * @param y [description]
+ * @param x [description]
+ */
 void gameMenu(int y, int x)
 {
 	WINDOW *menu = newwin(y / 2, x / 2, y / 4, x / 4);
