@@ -1,2 +1,3 @@
 #pragma once
-void printHello();
+
+void gameMenu(int y, int x);

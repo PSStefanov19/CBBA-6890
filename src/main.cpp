@@ -1,17 +1,19 @@
 #include <ncurses.h>
-#include <gameMenu.h>
-using namespace std;
+#include <string>
+#include "gameMenu.h"
 
 int main()
 {
     initscr();
-    refresh();
-    start_color();
-    init_pair(1, COLOR_YELLOW, COLOR_MAGENTA); 
-    attron(COLOR_PAIR(1));
-    printHello();
-    attroff(COLOR_PAIR(1));
-    refresh();
-    getch();
+        noecho();
+        curs_set(0);
+        int yMax, xMax;
+        getmaxyx(stdscr, yMax, xMax);
+        refresh();
+        gameMenu(yMax, xMax);
+        erase();
+        printw("Playing");
+        getch();
     endwin();
+    return 0;
 }
