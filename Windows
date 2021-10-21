@@ -1,11 +1,28 @@
+# include/ dir, obj/ dir and lib/ dir
+IDIR=include
+ODIR=obj
+LDIR=lib
+
+# Compiler options and flags
 CC=g++
-CCFLAGS=-Wall -O2 
-BIN=bin
+CCFLAGS=-I$(IDIR) -I$(IDIR)/ncursesw -L$(LDIR)
+ERRFLAGS=-Wall -Wunused-variable -Werror
 
-INCLUDE=-I.\include\ncursesw -I.\include
-LDIR=-L.\lib
+# Put header files here
+_DEPS=gameMenu.h
+DEPS=$(patsubst %, $(IDIR)/%, $(_DEPS))
 
-LIB=-llibncursesw
+# Put cpp files but change extension to .o
+_OBJ=main.o gameMenu.o
+OBJ=$(patsubst %, $(ODIR)/%, $(_OBJ))
 
-default:
-	$(CC) ./src/main.cpp -o $(BIN)/main $(CCFLAGS) $(LDIR) $(INCLUDE) $(LIB)
+# Libraries
+LIBS=-llibncursesw
+
+# Compile .cpp files to .o files
+$(ODIR)/%.o: src/%.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CCFLAGS) $(ERRFLAGS)
+
+# Link .o files and make an executable in bin/ folder
+main: $(OBJ)
+	$(CC) -o bin/$@.exe $^ $(CCFLAGS) $(ERRFLAGS) $(LIBS)
