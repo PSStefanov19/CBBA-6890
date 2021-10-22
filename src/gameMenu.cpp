@@ -75,7 +75,7 @@ void handleInput(WINDOW *menu,int *highlight, bool *bSelectedChoice)
             	*highlight = 2;
         	}
         	break;
-        case KEY_ENTER:
+        case KEY_RIGHT:
         	*bSelectedChoice = true;
         	break;
   	}
@@ -87,11 +87,11 @@ void handleInput(WINDOW *menu,int *highlight, bool *bSelectedChoice)
  * 
  * @param menu The window to be printed to
  */
-void diplayAboutUs(WINDOW *menu)
+void displayAboutUs(WINDOW *menu)
 {
 	werase(menu);
 	box(menu, 0, 0);
-	mvwprintw(menu, 0, 1, " About Us ");
+	mvwprintw(menu, 0, 1, " << About Us ");
 	mvwprintw(menu, 2, 2, "A raycasting maze game");
 	mvwprintw(menu, 4, 2, "Made by team CBBA-6890");
 }
@@ -101,8 +101,8 @@ void diplayAboutUs(WINDOW *menu)
  * @details Contains the menu window, menu options and flags.
  *  It initializes the menu and starts the main menu loop. At the end it clears the screen.
  * 
- * @param y [description]
- * @param x [description]
+ * @param y Max Y for stdscr
+ * @param x Max X for stdscr
  */
 void gameMenu(int y, int x)
 {
@@ -130,8 +130,8 @@ void gameMenu(int y, int x)
 					bRunning = false;
 					break;
 				case 1:
-					diplayAboutUs(menu);
-					if(wgetch(menu) == KEY_ENTER)
+					displayAboutUs(menu);
+					if(wgetch(menu) == KEY_LEFT)
 					{
 						bSelectedChoice = false;
 					}
