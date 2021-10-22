@@ -1,3 +1,3 @@
 #pragma once
 
-void gameMenu(int y, int x);
+bool gameMenu(int y, int x);

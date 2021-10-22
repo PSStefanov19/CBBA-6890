@@ -10,10 +10,12 @@ int main()
         int yMax, xMax;
         getmaxyx(stdscr, yMax, xMax);
         refresh();
-        gameMenu(yMax, xMax);
+        if(gameMenu(yMax, xMax))
+        {
         erase();
         printw("Playing");
         getch();
+        }
     endwin();
     return 0;
 }

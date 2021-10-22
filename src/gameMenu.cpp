@@ -104,17 +104,16 @@ void displayAboutUs(WINDOW *menu)
  * @param y Max Y for stdscr
  * @param x Max X for stdscr
  */
-void gameMenu(int y, int x)
+bool gameMenu(int y, int x)
 {
 	WINDOW *menu = newwin(y / 2, x / 2, y / 4, x / 4);
 	std::string choices[3] = {"> Play", "> About us", "> Exit"};
     box(menu, 0, 0);
     int highlight = 0;
     bool bSelectedChoice = false;
-    bool bRunning = true;
     keypad(menu, TRUE);
   	initMenu(menu);
-  	while(bRunning)
+  	while(true)
   	{
   		box(menu, 0, 0);
   		printMenu(menu, choices, &highlight);
@@ -127,7 +126,7 @@ void gameMenu(int y, int x)
   			switch(highlight)
 			{
 				case 0:
-					bRunning = false;
+					return true;
 					break;
 				case 1:
 					displayAboutUs(menu);
@@ -138,12 +137,10 @@ void gameMenu(int y, int x)
 					wrefresh(menu);
 					break;
 				case 2:
-					bRunning = false;
-					endwin();
+					return false;
 					break;
 			}
   		}
   		werase(menu);
   	}
-	delwin(menu);
 }
