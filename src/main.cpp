@@ -1,5 +1,4 @@
 #include <ncurses.h>
-#include <string>
 #include "gameMenu.h"
 
 int main()
