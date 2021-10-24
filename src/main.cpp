@@ -5,17 +5,17 @@
 int main()
 {
     initscr();
-        noecho();
-        curs_set(0);
-        int yMax, xMax;
-        getmaxyx(stdscr, yMax, xMax);
-        refresh();
-        if(gameMenu(yMax, xMax))
-        {
+    noecho();
+    curs_set(0);
+    int yMax, xMax;
+    getmaxyx(stdscr, yMax, xMax);
+    refresh();
+    if(gameMenu(yMax, xMax))
+    {
         erase();
         printw("Playing");
         getch();
-        }
+    }
     endwin();
     return 0;
 }
