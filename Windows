@@ -9,11 +9,11 @@ CCFLAGS=-I$(IDIR) -I$(IDIR)/ncursesw -L$(LDIR)
 ERRFLAGS=-Wall -Wunused-variable -Werror
 
 # Put header files here
-_DEPS=gameMenu.h
+_DEPS=gameMenu.h mazeGeneration.h
 DEPS=$(patsubst %, $(IDIR)/%, $(_DEPS))
 
 # Put cpp files but change extension to .o
-_OBJ=main.o gameMenu.o
+_OBJ=main.o gameMenu.o mazeGeneration.o
 OBJ=$(patsubst %, $(ODIR)/%, $(_OBJ))
 
 # Libraries

@@ -1,6 +1,7 @@
 #include <ncurses.h>
 #include <string>
 #include "gameMenu.h"
+#include "mazeGeneration.h"
 
 int main()
 {
@@ -13,7 +14,7 @@ int main()
         if(gameMenu(yMax, xMax))
         {
         erase();
-        printw("Playing");
+        generateMaze();
         getch();
         }
     endwin();
