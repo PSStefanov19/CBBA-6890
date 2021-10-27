@@ -126,6 +126,7 @@ bool gameMenu(int y, int x)
   			switch(highlight)
 			{
 				case 0:
+					werase(menu);
 					return true;
 					break;
 				case 1:
@@ -137,6 +138,7 @@ bool gameMenu(int y, int x)
 					wrefresh(menu);
 					break;
 				case 2:
+					delwin(menu);
 					return false;
 					break;
 			}
