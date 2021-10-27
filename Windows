@@ -4,8 +4,8 @@ ODIR=obj
 LDIR=lib
 
 # Compiler options and flags
-CC=g++
-CCFLAGS=-I$(IDIR) -I$(IDIR)/ncursesw -L$(LDIR)
+CXX=g++
+CXXFLAGS=-I$(IDIR) -I$(IDIR)/ncursesw -L$(LDIR)
 ERRFLAGS=-Wall -Wunused-variable -Werror
 
 # Put header files here
@@ -21,8 +21,8 @@ LIBS=-llibncursesw
 
 # Compile .cpp files to .o files
 $(ODIR)/%.o: src/%.cpp $(DEPS)
-	$(CC) -c -o $@ $< $(CCFLAGS) $(ERRFLAGS)
+	$(CXX) -c -o $@ $< $(CXXFLAGS) $(ERRFLAGS)
 
 # Link .o files and make an executable in bin/ folder
 main: $(OBJ)
-	$(CC) -o bin/$@.exe $^ $(CCFLAGS) $(ERRFLAGS) $(LIBS)
+	$(CXX) -o bin/$@.exe $^ $(CXXFLAGS) $(ERRFLAGS) $(LIBS)
