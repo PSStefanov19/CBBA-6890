@@ -60,7 +60,7 @@ void handleInput(WINDOW *menu,int *highlight, bool *bSelectedChoice)
 {
 	switch(wgetch(menu))
   	{
-      	case KEY_UP:
+      	case 'w':
         	*highlight -= 1;
         	if(*highlight == -1)
         	{
@@ -68,14 +68,14 @@ void handleInput(WINDOW *menu,int *highlight, bool *bSelectedChoice)
         	}
         	break;
     
-      	case KEY_DOWN:
+      	case 's':
         	*highlight += 1;
         	if(*highlight == 3)
         	{
             	*highlight = 2;
         	}
         	break;
-        case KEY_RIGHT:
+        case 'd':
         	*bSelectedChoice = true;
         	break;
   	}
@@ -131,7 +131,7 @@ bool gameMenu(int y, int x)
 					break;
 				case 1:
 					displayAboutUs(menu);
-					if(wgetch(menu) == KEY_LEFT)
+					if(wgetch(menu) == 'a')
 					{
 						bSelectedChoice = false;
 					}
