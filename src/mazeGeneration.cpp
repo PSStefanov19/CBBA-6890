@@ -4,6 +4,8 @@
 #include "mazeGeneration.h"
 using namespace std;
 
+
+
 struct CELL
 {
 	int y;
@@ -12,29 +14,30 @@ struct CELL
 	bool isWall = false;
 };
 
-void printMaze(CELL** maze, int size, char pathSymbol)
+char **createMaze(CELL** maze, char **map, int *size)
 {
-  for(int i = 0; i < size; i++)
+	for(int i = 0; i < *size; i++)
 	{
-		for(int j = 0; j < size; j++)
+		for(int j = 0; j < *size; j++)
 		{
 				if(maze[i][j].isVisited == true)
 				{
-					mvprintw(i, j, " ");
+					map[i][j] = ' ';
 				}
 				else
 				{
-					mvprintw(i, j, "#");
+					map[i][j] = '#';
 				}
 		}
 	}
+	return map;
 }
 
-void createWalls(CELL** maze, int size, int* allCells)
+void createWalls(CELL** maze, int *size, int* allCells)
 {
-  for(int y = 0; y < size; y++)
+  for(int y = 0; y < *size; y++)
 	{
-		for(int x = 0; x < size; x++)
+		for(int x = 0; x < *size; x++)
 		{
 			if((x % 2 == 0) or (y % 2 == 0))
 			{
@@ -99,34 +102,36 @@ bool canMove(int dir, int size, int cordY, int cordX)
 		 (dir == 3 && cordX == 1);
 }
 
-void generateMaze()
+char **generateMaze(int mazeSize)
 {
 	srand(time(NULL));
 	echo();
-	int cordY, cordX = 1;
-	int allCells = 0;
-	char pathSymbol = ' ';
-	int size;
 	
-	printw("Enter maze size: ");
-	scanw("%d", &size);
-	erase();
-	cordY = (rand() % size) * 2 + 1;
+	int cordX = 1;
+	int cordY = (rand() % mazeSize) * 2 + 1;
 
-	int exitY = (rand() % size) * 2 + 1;
+	int allCells = 0;
+	
+	int exitY = (rand() % mazeSize) * 2 + 1;
 
-	size = size * 2 + 1;
+	mazeSize = mazeSize * 2 + 1;
 
-	CELL** maze = new CELL*[size];
-	for(int i = 0; i < size; i++)
+	CELL** mazeData = new CELL*[mazeSize];
+	for(int i = 0; i < mazeSize; i++)
 	{
-		maze[i] = new CELL[size];
+		mazeData[i] = new CELL[mazeSize];
 	}
 
-	maze[cordY][cordX - 1].isVisited = true;
-	maze[exitY][size - 1].isVisited = true;
+	char **maze = new char*[mazeSize];
+	for(int i = 0; i < mazeSize; i++)
+	{
+		maze[i] = new char[mazeSize];
+	}
 
-	createWalls(maze, size, &allCells);
+	mazeData[cordY][cordX - 1].isVisited = true;
+	mazeData[exitY][mazeSize - 1].isVisited = true;
+
+	createWalls(mazeData, &mazeSize, &allCells);
 
 	bool existUnvisitedCells = true;
 
@@ -141,10 +146,12 @@ void generateMaze()
 		int dir;
 		do {
 			dir = rand()%4;
-		} while(canMove(dir, size, cordY, cordX));
+		} while(canMove(dir, mazeSize, cordY, cordX));
 		
-	moveCharacter(maze, &cordX, &cordY, dir, &unvisitedCells);
+	moveCharacter(mazeData, &cordX, &cordY, dir, &unvisitedCells);
 	}
 
-	printMaze(maze, size, pathSymbol);
+	createMaze(mazeData, maze, &mazeSize);
+
+	return maze;
 }

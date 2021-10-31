@@ -1,2 +1,3 @@
 #pragma once
-void generateMaze();
+
+char **generateMaze(int mazeSize);

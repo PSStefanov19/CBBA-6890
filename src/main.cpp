@@ -1,20 +1,19 @@
 #include <ncurses.h>
 #include "gameMenu.h"
-#include "mazeGeneration.h"
+#include "gameLogic.h"
 
 int main()
 {
     initscr();
     noecho();
     curs_set(0);
+    raw();
     int yMax, xMax;
     getmaxyx(stdscr, yMax, xMax);
     refresh();
     if(gameMenu(yMax, xMax))
     {
-        erase();
-        generateMaze();
-        getch();
+        gameLogic();
     }
     endwin();
     return 0;
