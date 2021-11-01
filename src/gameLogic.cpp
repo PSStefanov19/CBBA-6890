@@ -22,5 +22,6 @@ void gameLogic()
     size = size * 2 + 1;
     
     cbreak();
+    nodelay(stdscr, true);
     rayCaster(map, size);
 }
