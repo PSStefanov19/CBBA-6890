@@ -17,7 +17,7 @@ void rayCaster(char **maze,int size)
 
     start_color();
     init_pair(1, COLOR_BLUE, COLOR_BLUE);
-    init_pair(2, COLOR_BLACK, 15);
+    init_pair(2, COLOR_BLACK, COLOR_WHITE);
     init_pair(3, COLOR_YELLOW, COLOR_YELLOW);
 
     while (true)
