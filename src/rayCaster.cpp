@@ -11,9 +11,14 @@ void rayCaster(char **maze,int size)
     float playerX = 1.0f;
     float playerY = 1.0f;
     float playerAngle = 0.0f;
-    float FOV = 3.14159f / 4.0f;
+    float FOV = 3.14159 / 5.5;
     float maxRenderDistance = 10.0f;
     float speed = 1.0f;
+
+    start_color();
+    init_pair(1, COLOR_BLUE, COLOR_BLUE);
+    init_pair(2, COLOR_BLACK, 15);
+    init_pair(3, COLOR_YELLOW, COLOR_YELLOW);
 
     while (true)
     {
@@ -47,10 +52,9 @@ void rayCaster(char **maze,int size)
         }
         for(int x = 0; x < consoleWidth; x++)
         {
-            
-            float rayAngle = (playerAngle - FOV/2.0f) + ((float)x / (float)consoleWidth) * FOV;
+            float rayAngle = (playerAngle - FOV/2.0) + ((float)x / (float)consoleWidth) * FOV;
 
-            float stepSize = 0.01f;
+            float stepSize = 0.075f;
             float distanceToWall = 0.0f;
 
             bool hitWall = false;
@@ -78,65 +82,71 @@ void rayCaster(char **maze,int size)
                     }
                 }
             }
-            int startCeiling = (consoleHeight / 2) - (consoleHeight / distanceToWall);
+
+            int startCeiling = (float)(consoleHeight/2.0) - consoleHeight / ((float)distanceToWall);
             int startFloor = consoleHeight - startCeiling;
 
             char shade = ' ';
 
-
             // .:-=+*#%@
+            
             switch((int)distanceToWall)
             {
                 case 0:
                 case 1:
-                    shade = '@';
-                    break;
-                case 2:
-                    shade = '%';
-                    break;
-                case 3:
-                    shade = '#';
-                    break;
-                case 4:
-                    shade = '*';
-                    break;
-                case 5:
-                    shade = '+';
-                    break;
-                case 6:
-                    shade = '=';
-                    break;
-                case 7:
-                    shade = '-';
-                    break;
-                case 8:
-                    shade = ':';
-                    break;
-                case 9:
                     shade = '.';
-                    break;
-                case 10:
-                    shade = ' ';
-                    break;
-            }	
+                break;
+                case 2:
+                    shade = '.';
+                break;
+                case 3:
+                    shade = ':';
+                break;
+                case 4:
+                    shade = '-';
+                break;
+                case 5:
+                    shade = '=';
+                break;
+                case 6:
+                    shade = '+';
+                break;
+                case 7:
+                    shade = '*';
+                break;
+                case 8:
+                    shade = '#';
+                break;
+                case 9:
+                    shade = '%';
+                break;
+                default:
+                    shade = '@';
+            }
 
             for(int y = 0; y <= consoleHeight; y++)
             {
                 if(y <= startCeiling)
                 {
+                    attron(COLOR_PAIR(1));
                     mvaddch(y, x, ' ');
+                    attroff(COLOR_PAIR(1));
                 }
                 else if(y > startCeiling and y < startFloor)
                 {
+                    attron(COLOR_PAIR(2));
                     mvaddch(y, x, shade);
+                    attroff(COLOR_PAIR(2));
                 }
                 else
                 {
+                    attron(COLOR_PAIR(3));
                     mvaddch(y, x, '.');
+                    attroff(COLOR_PAIR(3));
                 }
             }
         }
-
+        
         for(int y = 0; y < size; y++)
         {
             for(int x = 0; x < size; x++)
