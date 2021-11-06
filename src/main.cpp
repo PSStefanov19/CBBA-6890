@@ -7,6 +7,7 @@ int main()
     initscr();
     noecho();
     curs_set(0);
+    keypad(stdscr, true);
     raw();
     int yMax, xMax;
     getmaxyx(stdscr, yMax, xMax);

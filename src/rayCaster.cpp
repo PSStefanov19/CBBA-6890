@@ -37,6 +37,8 @@ void rayCaster(char **maze,int size, int startY, int endY)
     {
         switch(getch())
         {
+            case KEY_UP:
+            case 'W':
             case 'w':
                 playerX += sinf(playerAngle) * speed * 0.075;
                 playerY += cosf(playerAngle) * speed * 0.075;
@@ -46,6 +48,8 @@ void rayCaster(char **maze,int size, int startY, int endY)
                     playerY -= cosf(playerAngle) * speed * 0.075;
                 }
             break;
+            case KEY_DOWN:
+            case 'S':
             case 's':
                 playerX -= sinf(playerAngle) * speed * 0.075;
                 playerY -= cosf(playerAngle) * speed * 0.075;
@@ -55,9 +59,13 @@ void rayCaster(char **maze,int size, int startY, int endY)
                     playerY += cosf(playerAngle) * speed * 0.075;
                 }
             break;
+            case KEY_LEFT:
+            case 'A':
             case 'a':
                 playerAngle -= speed * 0.01;
             break;
+            case KEY_RIGHT:
+            case 'D':
             case 'd':
                 playerAngle += speed * 0.01;
             break;
