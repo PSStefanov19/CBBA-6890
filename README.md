@@ -16,7 +16,7 @@
 					<a href = "#Released-project">Released project</a>
 				</li>
 				<li>
-					<a href = "#Compiling-from-spurce">Compiling from source</a>
+					<a href = "#Compiling-from-source">Compiling from source</a>
 				</li>
 			</ul>
 		</li>
