@@ -61,8 +61,9 @@ You can go to the Releases page of the project and download the latest version f
 	```
 	+ Debian and Debian-based
 	```sh
-apt-get install libncurses5-dev libncursesw5-dev
+	apt-get install libncurses5-dev libncursesw5-dev
 	```
+
 ##### Compiling and running
 1. Clone the project
 ```sh
