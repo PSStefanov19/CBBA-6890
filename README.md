@@ -85,14 +85,14 @@ git clone https://www.github.com/PSStefanov19/CBBA-6890
 	```sh
 	./bin/main.out
 	```
-	## License
-	This project is licensed under the MIT license. See [License](License) for more information.
-	
-	## Contact us
-	Presian Stefanov
-	+ Github - [@PSStefanov19](https://github.com/PSStefanov19)
-	+ Instagram - [@presian.cpp](https://www.instagram.com/presian.cpp/)
-	+ Email - PSStefanov19@codingburgas.bg
+## License
+This project is licensed under the MIT license. See [License](License) for more information.
+
+## Contact us
+Presian Stefanov
++ Github - [@PSStefanov19](https://github.com/PSStefanov19)
++ Instagram - [@presian.cpp](https://www.instagram.com/presian.cpp/)
++ Email - PSStefanov19@codingburgas.bg
 ## Acknowledgements
 Helpful resources I found while working on the project
 + [Choose an Open Source License](https://choosealicense.com/)
