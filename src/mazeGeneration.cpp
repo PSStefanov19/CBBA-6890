@@ -1,10 +1,7 @@
 #include <iostream>
-#include <time.h>
 #include <ncurses.h>
 #include "mazeGeneration.h"
 using namespace std;
-
-
 
 struct CELL
 {
@@ -102,18 +99,13 @@ bool canMove(int dir, int size, int cordY, int cordX)
 		 (dir == 3 && cordX == 1);
 }
 
-char **generateMaze(int mazeSize)
+char **generateMaze(int mazeSize, int startY, int endY)
 {
-	srand(time(NULL));
 	echo();
-	
-	int cordX = 1;
-	int cordY = (rand() % mazeSize) * 2 + 1;
 
 	int allCells = 0;
 	
-	int exitY = (rand() % mazeSize) * 2 + 1;
-
+	int cordX = 1;
 	mazeSize = mazeSize * 2 + 1;
 
 	CELL** mazeData = new CELL*[mazeSize];
@@ -128,8 +120,8 @@ char **generateMaze(int mazeSize)
 		maze[i] = new char[mazeSize];
 	}
 
-	mazeData[cordY][cordX - 1].isVisited = true;
-	mazeData[exitY][mazeSize - 1].isVisited = true;
+	mazeData[startY][0].isVisited = true;
+	mazeData[endY][mazeSize - 1].isVisited = true;
 
 	createWalls(mazeData, &mazeSize, &allCells);
 
@@ -146,9 +138,9 @@ char **generateMaze(int mazeSize)
 		int dir;
 		do {
 			dir = rand()%4;
-		} while(canMove(dir, mazeSize, cordY, cordX));
+		} while(canMove(dir, mazeSize, endY, cordX));
 		
-	moveCharacter(mazeData, &cordX, &cordY, dir, &unvisitedCells);
+	moveCharacter(mazeData, &cordX, &endY, dir, &unvisitedCells);
 	}
 
 	createMaze(mazeData, maze, &mazeSize);

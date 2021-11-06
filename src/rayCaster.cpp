@@ -1,7 +1,20 @@
 #include <ncurses.h>
 #include <math.h>
+#include "rayCaster.h"
 
-void rayCaster(char **maze,int size)
+bool checkIfWon(int currectPosX, int currentPosY, int exitX, int exitY)
+{
+    if(currectPosX == exitX and currentPosY == exitY)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void rayCaster(char **maze,int size, int startY, int endY)
 {
     int consoleHeight = getmaxy(stdscr);
     int consoleWidth = getmaxx(stdscr);
@@ -9,21 +22,20 @@ void rayCaster(char **maze,int size)
     int mapHeight = size;
 
     float playerX = 1.0f;
-    float playerY = 1.0f;
+    float playerY = startY;
     float playerAngle = 0.0f;
     float FOV = 3.14159 / 5.5;
     float maxRenderDistance = 10.0f;
     float speed = 1.0f;
 
     start_color();
-    init_pair(1, COLOR_BLUE, COLOR_BLUE);
-    init_pair(2, COLOR_BLACK, COLOR_WHITE);
-    init_pair(3, COLOR_YELLOW, COLOR_YELLOW);
+    init_pair(SKY, COLOR_BLUE, COLOR_BLUE);
+    init_pair(WALLS, COLOR_BLACK, COLOR_WHITE);
+    init_pair(FLOOR, COLOR_YELLOW, COLOR_YELLOW);
 
-    while (true)
+    while (!(checkIfWon(int(playerX), int(playerY), size-1, endY)))
     {
-        char ch;
-        switch(ch = getch())
+        switch(getch())
         {
             case 'w':
                 playerX += sinf(playerAngle) * speed * 0.075;
