@@ -35,18 +35,15 @@
 
 
 ## About the project
----
 ![Game image](./images/gameImage.png)
 This is the maze game of Team "CBBA-6890". We used a combination of raycasting and maze generation algorithms to make this game.
 
 ## Technologies used
----
 We used two main technologies:
 * C++
 * ncurses
 
 ## Getting started
----
 #### Released project
 You can go to the Releases page of the project and download the latest version for your OS
 
@@ -89,17 +86,14 @@ git clone https://www.github.com/PSStefanov19/CBBA-6890
 	./bin/main.out
 	```
 	## License
-	---
 	This project is licensed under the MIT license. See [License](License) for more information.
 	
 	## Contact us
-	---
 	Presian Stefanov
 	+ Github - [@PSStefanov19](https://github.com/PSStefanov19)
 	+ Instagram - [@presian.cpp](https://www.instagram.com/presian.cpp/)
 	+ Email - PSStefanov19@codingburgas.bg
 ## Acknowledgements
----
 Helpful resources I found while working on the project
 + [Choose an Open Source License](https://choosealicense.com/)
 + [Colsby Computer Science's makefile guide](https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/)
