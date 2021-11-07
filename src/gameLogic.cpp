@@ -5,36 +5,78 @@
 #include "mazeGeneration.h"
 #include "rayCaster.h"
 
+/**
+ * @brief Function that displays the win message
+ * 
+ */
 void displayWin()
 {
+    //Get max console height
     int maxX = getmaxx(stdscr);
+
+    //Create a window that will contain the win message
     WINDOW *winWin = newwin(3, maxX/2, getmaxy(stdscr)/4, maxX/4);
+
+    //Create a box around the win window
     box(winWin, 0, 0);
+
+    //Display the win message
     mvwprintw(winWin, 1, 1, "You won");
+
+    //Wait for input
     wgetch(winWin);
+
+    //Delete the window
     delwin(winWin);
 }
 
+/**
+ * @brief Function that displays the exit message
+ * 
+ */
 void displayExit()
 {
+    //Get max console height
     int maxX = getmaxx(stdscr);
+
+    //Create a window that will contain the exit message
     WINDOW *exitWin = newwin(3, maxX/2, getmaxy(stdscr)/4, maxX/4);
+
+    //Create a box around the exit wondow
     box(exitWin, 0, 0);
+
+    //Print the exit message
     mvwprintw(exitWin, 1, 1, "Thanks for playing");
+
+    //Wait for input
     wgetch(exitWin);
+
+    //Delete the window
     delwin(exitWin);
 }
 
+/**
+ * @brief Function that initializes the game
+ * 
+ */
 void startGame()
 {
-    //Get maze size
+    //Clear the screen
     erase();
-    int size;
+
+    //Turn on printing written characters to screen
     echo();
+
+    //Get maze size
+    int size;
     printw("Enter maze size: ");
     scanw("%d", &size);
-    erase();
+
+    //Turn off printing written characters to screen
     noecho();
+
+    //Clear the screen
+    erase();
 
     //Choose random start and end coordinates
     srand(time(NULL));
@@ -65,13 +107,25 @@ void startGame()
     displayWin();   
 }
 
+/**
+ * @brief A function that holds all the logic to the game
+ * 
+ */
 void gameLogic()
 {
     //Setup functions for ncurses
     initscr();
+
+    //Stop character from displaying on the screen
     noecho();
+
+    //Make cursor invisible
     curs_set(0);
+
+    //Enable keypad input
     keypad(stdscr, true);
+
+    //Give the raw input without the computer reworking it
     raw();
 
     //Get console dimensions
@@ -82,7 +136,6 @@ void gameLogic()
     //Display menu
     if(gameMenu(yMax, xMax))
     {
-        
         startGame();        
     }
 
