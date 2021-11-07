@@ -1,0 +1,10 @@
+<map id="rayCaster" name="rayCaster">
+<area shape="rect" id="node1" title="Raycaster. This function is used as a game loop." alt="" coords="5,157,91,184"/>
+<area shape="rect" id="node2" href="$ray_caster_8cpp.html#ae590c13478cc895f4cfcb2ca7649172e" title="Calculate the ending coordinate of the ceiling." alt="" coords="141,5,267,32"/>
+<area shape="rect" id="node3" href="$ray_caster_8cpp.html#ad5b6ce512e7bc5156d966b840e159fdd" title="A function to check if player has won." alt="" coords="155,56,253,83"/>
+<area shape="rect" id="node4" href="$ray_caster_8cpp.html#adffe7b074c0fb752ffbfaf6a2db4c7d1" title="Draws the raycasted image." alt="" coords="157,107,251,133"/>
+<area shape="rect" id="node5" href="$ray_caster_8cpp.html#ad0bcc41833dfc457b0aa42573686daef" title="Function to draw the maze." alt="" coords="163,157,245,184"/>
+<area shape="rect" id="node6" href="$ray_caster_8cpp.html#ad8ec82f9ed74598653edc06b9cd7a76c" title="Function that calculates the distance to the wall." alt="" coords="139,208,269,235"/>
+<area shape="rect" id="node7" href="$ray_caster_8cpp.html#ab56a5897484256ddd95d13de416a6004" title="Get the Shade object." alt="" coords="163,259,245,285"/>
+<area shape="rect" id="node8" href="$ray_caster_8cpp.html#a91c27ba7d0c0f8717c846bad3ee7d46c" title="Function handles user input." alt="" coords="155,309,253,336"/>
+</map>

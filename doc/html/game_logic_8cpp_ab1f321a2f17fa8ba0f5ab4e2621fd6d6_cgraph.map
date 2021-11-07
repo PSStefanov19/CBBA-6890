@@ -1,0 +1,17 @@
+<map id="startGame" name="startGame">
+<area shape="rect" id="node1" title="Function that initializes the game." alt="" coords="5,107,96,133"/>
+<area shape="rect" id="node2" href="$game_logic_8cpp.html#a2735fa1782cf7b6eefa78265df744522" title="Function that displays the win message." alt="" coords="154,56,249,83"/>
+<area shape="rect" id="node3" href="$maze_generation_8cpp.html#ab74716bccf825cedd3c72be34d98340b" title=" " alt="" coords="144,107,259,133"/>
+<area shape="rect" id="node8" href="$ray_caster_8cpp.html#a0386e1cc341101d88ea6680a572cd882" title="Raycaster. This function is used as a game loop." alt="" coords="159,335,244,361"/>
+<area shape="rect" id="node4" href="$maze_generation_8cpp.html#a72363f2715187142cb2bdac958dd02cd" title="A function to check whether the current cell can be moved to a certain direction." alt="" coords="320,5,424,32"/>
+<area shape="rect" id="node5" href="$maze_generation_8cpp.html#ad1f1f8d237a1ba07984cc420934ddca6" title="Transform the maze from a CELL maze to a char map." alt="" coords="323,56,421,83"/>
+<area shape="rect" id="node6" href="$maze_generation_8cpp.html#a4f593a430c94cf1d369775594b66cc6a" title="Create walls." alt="" coords="323,107,421,133"/>
+<area shape="rect" id="node7" href="$maze_generation_8cpp.html#a04e362b8ade90e04e028ab2ec8531d39" title="Function that moves the current cell to given direction." alt="" coords="311,157,433,184"/>
+<area shape="rect" id="node9" href="$ray_caster_8cpp.html#ae590c13478cc895f4cfcb2ca7649172e" title="Calculate the ending coordinate of the ceiling." alt="" coords="309,208,435,235"/>
+<area shape="rect" id="node10" href="$ray_caster_8cpp.html#ad5b6ce512e7bc5156d966b840e159fdd" title="A function to check if player has won." alt="" coords="323,259,421,285"/>
+<area shape="rect" id="node11" href="$ray_caster_8cpp.html#adffe7b074c0fb752ffbfaf6a2db4c7d1" title="Draws the raycasted image." alt="" coords="325,309,419,336"/>
+<area shape="rect" id="node12" href="$ray_caster_8cpp.html#ad0bcc41833dfc457b0aa42573686daef" title="Function to draw the maze." alt="" coords="331,360,413,387"/>
+<area shape="rect" id="node13" href="$ray_caster_8cpp.html#ad8ec82f9ed74598653edc06b9cd7a76c" title="Function that calculates the distance to the wall." alt="" coords="307,411,437,437"/>
+<area shape="rect" id="node14" href="$ray_caster_8cpp.html#ab56a5897484256ddd95d13de416a6004" title="Get the Shade object." alt="" coords="331,461,413,488"/>
+<area shape="rect" id="node15" href="$ray_caster_8cpp.html#a91c27ba7d0c0f8717c846bad3ee7d46c" title="Function handles user input." alt="" coords="323,512,421,539"/>
+</map>

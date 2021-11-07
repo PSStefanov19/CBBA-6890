@@ -1,0 +1,7 @@
+<map id="gameMenu" name="gameMenu">
+<area shape="rect" id="node1" title="Main menu function." alt="" coords="5,81,100,108"/>
+<area shape="rect" id="node2" href="$game_menu_8cpp.html#a6642bea2cf22f1ac3b5b4bcbb6931ebb" title="Displays the &quot;About us&quot; option in the menu." alt="" coords="148,5,272,32"/>
+<area shape="rect" id="node3" href="$game_menu_8cpp.html#a14f7a972215388140c5f606200b18c53" title="Input handler." alt="" coords="161,56,259,83"/>
+<area shape="rect" id="node4" href="$game_menu_8cpp.html#a32b90db728f007629eab4a61b7130f3b" title="Initial print of menu." alt="" coords="171,107,249,133"/>
+<area shape="rect" id="node5" href="$game_menu_8cpp.html#a3709eab868d0519b1a6b8167d23db464" title="A function to print the menu." alt="" coords="166,157,254,184"/>
+</map>

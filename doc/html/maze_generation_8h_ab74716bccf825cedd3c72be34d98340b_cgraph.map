@@ -1,0 +1,7 @@
+<map id="generateMaze" name="generateMaze">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,120,108"/>
+<area shape="rect" id="node2" href="$maze_generation_8cpp.html#a72363f2715187142cb2bdac958dd02cd" title="A function to check whether the current cell can be moved to a certain direction." alt="" coords="177,5,281,32"/>
+<area shape="rect" id="node3" href="$maze_generation_8cpp.html#ad1f1f8d237a1ba07984cc420934ddca6" title="Transform the maze from a CELL maze to a char map." alt="" coords="180,56,279,83"/>
+<area shape="rect" id="node4" href="$maze_generation_8cpp.html#a4f593a430c94cf1d369775594b66cc6a" title="Create walls." alt="" coords="180,107,279,133"/>
+<area shape="rect" id="node5" href="$maze_generation_8cpp.html#a04e362b8ade90e04e028ab2ec8531d39" title="Function that moves the current cell to given direction." alt="" coords="168,157,291,184"/>
+</map>

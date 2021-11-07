@@ -1,0 +1,7 @@
+<map id="drawMap" name="drawMap">
+<area shape="rect" id="node1" title="Function to draw the maze." alt="" coords="521,5,604,32"/>
+<area shape="rect" id="node2" href="$ray_caster_8cpp.html#a0386e1cc341101d88ea6680a572cd882" title="Raycaster. This function is used as a game loop." alt="" coords="388,5,473,32"/>
+<area shape="rect" id="node3" href="$game_logic_8cpp.html#ab1f321a2f17fa8ba0f5ab4e2621fd6d6" title="Function that initializes the game." alt="" coords="249,5,340,32"/>
+<area shape="rect" id="node4" href="$game_logic_8cpp.html#a67a72dcb45a62d9aab580e444cb8aa5d" title="A function that holds all the logic to the game." alt="" coords="108,5,201,32"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,32"/>
+</map>
