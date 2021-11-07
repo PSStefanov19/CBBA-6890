@@ -65,7 +65,9 @@ void handleInput(WINDOW *menu,int *highlight, bool *bSelectedChoice)
 	//Switch that checks the input of the user
 	switch(wgetch(menu))
   	{
-		//If user presses w move the selection up
+		//If user presses w, W or KEY_UP move the selection up
+		case KEY_UP:
+		case 'W':
       	case 'w':
         	*highlight -= 1;
 
@@ -76,7 +78,9 @@ void handleInput(WINDOW *menu,int *highlight, bool *bSelectedChoice)
         	}
         	break;
     
-		//If user presses s move the selection down
+		//If user presses s, S or KEY_DOWN move the selection down
+		case KEY_DOWN:
+		case 'S':
       	case 's':
         	*highlight += 1;
 
@@ -87,7 +91,9 @@ void handleInput(WINDOW *menu,int *highlight, bool *bSelectedChoice)
         	}
         	break;
 		
-		//If user pressed d select the choice
+		//If user pressed d, D or KEY_RIGHT select the choice
+		case KEY_RIGHT:
+		case 'D':
         case 'd':
         	*bSelectedChoice = true;
         	break;
@@ -170,7 +176,7 @@ bool gameMenu(int y, int x)
 				//If option 1 is selceted then display about us
 				case 1:
 					displayAboutUs(menu);
-					if(wgetch(menu) == 'a')
+					if(wgetch(menu) == 'a' or wgetch(menu) == 'A' or wgetch(menu) == KEY_LEFT)
 					{
 						bSelectedChoice = false;
 					}
