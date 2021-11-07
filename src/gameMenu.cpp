@@ -25,13 +25,17 @@ void initMenu(WINDOW *menu)
  * 
  * @param menu The window to be printed to
  * @param choice An array of menu options
- * @param highlight Holds the number to the highlighted option
+ * @param highlight Index of highlighted option
  */
 void printMenu(WINDOW *menu ,std::string *choice, int *highlight)
 {
+	//Print the title
 	mvwprintw(menu, 0, 1, " Maze Game ");
+
+	//Print all options of menu
 	for(int i = 0; i < 3; i++)
 	{
+		//If i is equal to highlight then highlight it
 		if(*highlight == i)
 		{
 			wattron(menu, A_REVERSE);
@@ -58,23 +62,32 @@ void printMenu(WINDOW *menu ,std::string *choice, int *highlight)
  */
 void handleInput(WINDOW *menu,int *highlight, bool *bSelectedChoice)
 {
+	//Switch that checks the input of the user
 	switch(wgetch(menu))
   	{
+		//If user presses w move the selection up
       	case 'w':
         	*highlight -= 1;
+
+			//If selection is less than 0 return it to 0
         	if(*highlight == -1)
         	{
             	*highlight = 0;
         	}
         	break;
     
+		//If user presses s move the selection down
       	case 's':
         	*highlight += 1;
+
+			//If selelction is greater than max options return it to the last option
         	if(*highlight == 3)
         	{
             	*highlight = 2;
         	}
         	break;
+		
+		//If user pressed d select the choice
         case 'd':
         	*bSelectedChoice = true;
         	break;
@@ -106,29 +119,55 @@ void displayAboutUs(WINDOW *menu)
  */
 bool gameMenu(int y, int x)
 {
+	//Init a new window
 	WINDOW *menu = newwin(y / 2, x / 2, y / 4, x / 4);
-	std::string choices[3] = {"> Play", "> About us", "> Exit"};
+
+	//Options of the menu
+	std::string choices[3] = {
+		"> Play",
+		"> About us", 
+		"> Exit"
+	};
+
+	//Create a box around the menu
     box(menu, 0, 0);
+
+	//Index of highlighted option
     int highlight = 0;
+
+	//Flag to check if option has been selected
     bool bSelectedChoice = false;
+
+	//Enable keypad usage
     keypad(menu, TRUE);
+
+	//Initialize the menu
   	initMenu(menu);
+	
+	//Menu loop
   	while(true)
   	{
+		//Print the menu
   		box(menu, 0, 0);
   		printMenu(menu, choices, &highlight);
+		
+		//If nothing has been selected wait for input
   		if(!bSelectedChoice)
   		{
   			handleInput(menu, &highlight, &bSelectedChoice);
   		}
   		else
   		{
+			//Switch of chosen options
   			switch(highlight)
 			{
+				//If option 0 is selecten then start game
 				case 0:
 					werase(menu);
 					return true;
 					break;
+
+				//If option 1 is selceted then display about us
 				case 1:
 					displayAboutUs(menu);
 					if(wgetch(menu) == 'a')
@@ -137,12 +176,15 @@ bool gameMenu(int y, int x)
 					}
 					wrefresh(menu);
 					break;
+
+				//If option 2 is selected then exit the game
 				case 2:
 					delwin(menu);
 					return false;
 					break;
 			}
   		}
+		//Erase the menu
   		werase(menu);
   	}
 }
