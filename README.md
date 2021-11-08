@@ -92,7 +92,6 @@ This project is licensed under the MIT license. See [License](License) for more 
 Presian Stefanov
 + Github - [@PSStefanov19](https://github.com/PSStefanov19)
 + Instagram - [@presian.cpp](https://www.instagram.com/presian.cpp/)
-+ Email - PSStefanov19@codingburgas.bg
 ## Acknowledgements
 Helpful resources I found while working on the project
 + [Choose an Open Source License](https://choosealicense.com/)
