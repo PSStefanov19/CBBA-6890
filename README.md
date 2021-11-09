@@ -45,7 +45,8 @@ We used two main technologies:
 
 ## Getting started
 #### Released project
-You can go to the Releases page of the project and download the latest version for your OS
+You can go to the Releases page of the project and download the latest version for your OS <br>
+(Note: On Windows you will need an installation of [MinGw](https://sourceforge.net/projects/mingw/) to run it)
 
 #### Compiling from source
 
